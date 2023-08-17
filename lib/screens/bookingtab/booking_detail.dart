@@ -344,6 +344,227 @@ class _BookingDetailsState extends State<BookingDetails> {
                 ),
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                "My Purchase",
+                style: TextStyle(
+                    color: textColor,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 20),
+              ),
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 136,
+                      height: 140,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: textColor, width: .5)),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              "2 Coupe",
+                              style: TextStyle(
+                                  color: textColor,
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              "Full Cover",
+                              style:
+                                  TextStyle(color: textColor.withOpacity(.6)),
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Container(
+                              margin: EdgeInsets.only(left: 12),
+                              child: Text(
+                                "After 9:30 PM",
+                                style: TextStyle(
+                                    color: textColor,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 10),
+                                textAlign: TextAlign.start,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Divider(
+                              color: textColor,
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Container(
+                              margin: EdgeInsets.only(left: 12),
+                              child: Text(
+                                "Rs. 2000",
+                                style: TextStyle(
+                                    color: textColor,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 12),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    //2nd
+
+                    Container(
+                      width: 136,
+                      height: 140,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: textColor, width: .5)),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              "4 Male",
+                              style: TextStyle(
+                                  color: textColor,
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              "Full Cover",
+                              style:
+                                  TextStyle(color: textColor.withOpacity(.6)),
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Container(
+                              margin: EdgeInsets.only(left: 12),
+                              child: Text(
+                                "After 9:30 PM",
+                                style: TextStyle(
+                                    color: textColor,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 10),
+                                textAlign: TextAlign.start,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Divider(
+                              color: textColor,
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Container(
+                              margin: EdgeInsets.only(left: 12),
+                              child: Text(
+                                "Rs. 25000",
+                                style: TextStyle(
+                                    color: textColor,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 12),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    //3rd
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    //2nd
+
+                    Container(
+                      width: 136,
+                      height: 140,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: textColor, width: .5)),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              "4 Females",
+                              style: TextStyle(
+                                  color: textColor,
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              "Full Cover",
+                              style:
+                                  TextStyle(color: textColor.withOpacity(.6)),
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Container(
+                              margin: EdgeInsets.only(left: 12),
+                              child: Text(
+                                "After 9:30 PM",
+                                style: TextStyle(
+                                    color: textColor,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 10),
+                                textAlign: TextAlign.start,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Divider(
+                              color: textColor,
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Container(
+                              margin: EdgeInsets.only(left: 12),
+                              child: Text(
+                                "Rs. 25000",
+                                style: TextStyle(
+                                    color: textColor,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 12),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
             Center(
               child: Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -360,8 +581,8 @@ class _BookingDetailsState extends State<BookingDetails> {
                       ),
                       Container(
                         width: 270,
-                        child: SaveButton(
-                            title: "Rs. 1150 Book Now",
+                        child: ShareButton(
+                            title: "View & Download Ticket",
                             onTap: () {
                               // Navigator.push(
                               //     context,

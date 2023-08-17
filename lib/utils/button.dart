@@ -65,3 +65,30 @@ class OutlineButton extends StatelessWidget {
     );
   }
 }
+
+class ShareButton extends StatelessWidget {
+  String title;
+  final void Function()? onTap;
+
+  ShareButton({super.key, required this.title, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: onTap,
+      style: ElevatedButton.styleFrom(
+          backgroundColor: Color(0xff4E4E4E),
+          side: BorderSide(color: textColor.withOpacity(.4), width: .5),
+          fixedSize: Size(246, 48),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+      child: Text(
+        title,
+        style: TextStyle(
+            fontFamily: "Mulish",
+            fontWeight: FontWeight.w600,
+            color: textColor),
+      ),
+    );
+  }
+}
