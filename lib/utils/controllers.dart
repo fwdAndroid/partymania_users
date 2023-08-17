@@ -69,3 +69,8 @@ final editGender = TextEditingController();
 
 //Wallet
 final walletController = TextEditingController();
+
+//Help
+final emailController = TextEditingController();
+final subjectController = TextEditingController();
+final dse = TextEditingController();

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:partymania_users/screens/user_profile/edit_user_profile.dart';
+import 'package:partymania_users/screens/user_profile/help.dart';
 import 'package:partymania_users/screens/user_profile/manage_wallets.dart';
+import 'package:partymania_users/screens/user_profile/payment.dart';
+import 'package:partymania_users/screens/user_profile/settings.dart';
 import 'package:partymania_users/utils/colors.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -234,10 +237,8 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             ListTile(
               onTap: () {
-                // Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //         builder: (builder) => EditUserClubProfile()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (builder) => Payments()));
               },
               leading: Image.asset(
                 "assets/money.png",
@@ -260,8 +261,8 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             ListTile(
               onTap: () {
-                // Navigator.push(
-                //     context, MaterialPageRoute(builder: (builder) => Settings()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (builder) => Settings()));
               },
               leading: Icon(
                 Icons.settings,
@@ -283,6 +284,10 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ),
             ListTile(
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (builder) => Help()));
+              },
               leading: Image.asset(
                 "assets/message-question.png",
                 width: 30,
