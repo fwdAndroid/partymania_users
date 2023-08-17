@@ -297,10 +297,10 @@ class _SignUpAccountState extends State<SignUpAccount> {
                   child: SaveButton(
                       title: 'Signup',
                       onTap: () {
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (builder) => CreateProfile()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (builder) => LoginScreen()));
                       })),
               const SizedBox(
                 height: 15,
