@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:partymania_users/screens/bookingtab/widget/booking_list_view_widget.dart';
 import 'package:partymania_users/utils/colors.dart';
 
 class UpCommingEvents extends StatefulWidget {
@@ -13,6 +14,12 @@ class _UpCommingEventsState extends State<UpCommingEvents> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColor,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: BookingListViewWidget(),
+        ),
+      ),
     );
   }
 }
