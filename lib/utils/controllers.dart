@@ -62,3 +62,10 @@ final ticketPurchaseUploadController = TextEditingController();
 final offerNameController = TextEditingController();
 final offerCodeController = TextEditingController();
 final termsController = TextEditingController();
+
+//Edit Profile
+final editDob = TextEditingController();
+final editGender = TextEditingController();
+
+//Wallet
+final walletController = TextEditingController();

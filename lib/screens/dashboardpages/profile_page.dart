@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:partymania_users/screens/user_profile/edit_user_profile.dart';
+import 'package:partymania_users/screens/user_profile/manage_wallets.dart';
 import 'package:partymania_users/utils/colors.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -184,8 +186,8 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             ListTile(
               onTap: () {
-                // Navigator.push(context,
-                //     MaterialPageRoute(builder: (builder) => EditUserProfile()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (builder) => ManageWallets()));
               },
               leading: Image.asset(
                 "assets/empty-wallet.png",
@@ -208,8 +210,8 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             ListTile(
               onTap: () {
-                // Navigator.push(context,
-                //     MaterialPageRoute(builder: (builder) => EditUserProfile()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (builder) => EditUserProfile()));
               },
               leading: Image.asset(
                 "assets/frame.png",
