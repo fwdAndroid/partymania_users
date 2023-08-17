@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:partymania_users/screens/clubtab/club_details.dart';
 import 'package:partymania_users/utils/colors.dart';
 
-class ClubListViewWidget extends StatefulWidget {
-  const ClubListViewWidget({super.key});
+class UpComingEventsList extends StatefulWidget {
+  const UpComingEventsList({super.key});
 
   @override
-  State<ClubListViewWidget> createState() => _ClubListViewWidgetState();
+  State<UpComingEventsList> createState() => _UpComingEventsListState();
 }
 
-class _ClubListViewWidgetState extends State<ClubListViewWidget> {
+class _UpComingEventsListState extends State<UpComingEventsList> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height,
+      height: 250,
       child: ListView.builder(
           itemCount: 3,
           itemBuilder: (BuildContext context, int index) {
@@ -31,10 +30,10 @@ class _ClubListViewWidgetState extends State<ClubListViewWidget> {
                       children: [
                         InkWell(
                           onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (builder) => ClubDetails()));
+                            // Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //         builder: (builder) => EventDetails()));
                           },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -53,7 +52,7 @@ class _ClubListViewWidgetState extends State<ClubListViewWidget> {
                                 ],
                               ),
                               const SizedBox(
-                                width: 20,
+                                width: 30,
                               ),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -88,21 +87,9 @@ class _ClubListViewWidgetState extends State<ClubListViewWidget> {
                                       const SizedBox(
                                         width: 10,
                                       ),
-                                      Container(
-                                          decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.all(
-                                                  Radius.circular(16)),
-                                              border:
-                                                  Border.all(color: otpColor)),
-                                          height: 30,
-                                          width: 50,
-                                          child: Center(
-                                            child: Text(
-                                              "Bar",
-                                              style: TextStyle(color: otpColor),
-                                              textAlign: TextAlign.center,
-                                            ),
-                                          )),
+                                      Image.asset(
+                                        "assets/Auto Layout Horizontal.png",
+                                      )
                                     ],
                                   ),
                                   const SizedBox(
@@ -122,32 +109,48 @@ class _ClubListViewWidgetState extends State<ClubListViewWidget> {
                                             fontWeight: FontWeight.w400,
                                             fontSize: 12),
                                       ),
-                                      SizedBox(
-                                        width: 100,
-                                      ),
-                                      Container(
-                                        alignment: Alignment.centerRight,
-                                        height: 20,
-                                        width: 40,
-                                        decoration: BoxDecoration(
-                                          color: Color(0xff4E4E4E),
-                                          borderRadius:
-                                              BorderRadius.circular(6),
-                                          border: Border.all(
-                                            color: textColor.withOpacity(.7),
-                                          ),
-                                        ),
-                                        child: Center(
-                                          child: Text(
-                                            "2 Km",
-                                            style: TextStyle(color: textColor),
-                                          ),
-                                        ),
-                                      )
                                     ],
+                                  ),
+                                  const SizedBox(
+                                    height: 6,
+                                  ),
+                                  Container(
+                                    height: 20,
+                                    width: 150,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(16),
+                                        border: Border.all(
+                                            width: 1,
+                                            color: textColor.withOpacity(.80))),
+                                    child: Text(
+                                      "20 Dec, 9:00pm",
+                                      style: TextStyle(
+                                          color: textColor.withOpacity(.6)),
+                                      textAlign: TextAlign.center,
+                                    ),
                                   ),
                                 ],
                               ),
+                              Flexible(child: Container()),
+                              Container(
+                                margin: EdgeInsets.only(right: 10),
+                                alignment: Alignment.centerRight,
+                                height: 20,
+                                width: 40,
+                                decoration: BoxDecoration(
+                                  color: Color(0xff4E4E4E),
+                                  borderRadius: BorderRadius.circular(6),
+                                  border: Border.all(
+                                    color: textColor.withOpacity(.7),
+                                  ),
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    "2 Km",
+                                    style: TextStyle(color: textColor),
+                                  ),
+                                ),
+                              )
                             ],
                           ),
                         )
