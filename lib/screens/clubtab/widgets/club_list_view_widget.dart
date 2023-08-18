@@ -13,7 +13,7 @@ class _ClubListViewWidgetState extends State<ClubListViewWidget> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height,
+      height: 250,
       child: ListView.builder(
           itemCount: 3,
           itemBuilder: (BuildContext context, int index) {

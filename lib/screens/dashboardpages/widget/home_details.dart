@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:partymania_users/screens/tickettab/ticket_tab.dart';
 import 'package:partymania_users/utils/button.dart';
 import 'package:partymania_users/utils/colors.dart';
 import 'package:partymania_users/utils/longtext.dart';
@@ -409,7 +410,6 @@ class _HomeDetailsState extends State<HomeDetails> {
                           ],
                         ),
                       ),
-                      Spacer(),
                       Icon(
                         Icons.keyboard_arrow_right,
                         color: textColor,
@@ -528,10 +528,10 @@ class _HomeDetailsState extends State<HomeDetails> {
                         child: SaveButton(
                             title: "Rs. 1150 Book Now",
                             onTap: () {
-                              // Navigator.push(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //         builder: (builder) => EditEvent()));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (builder) => TicketTab()));
                             }),
                       ),
                     ],

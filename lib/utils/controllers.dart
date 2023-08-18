@@ -85,3 +85,7 @@ final typeControllerFromDate = TextEditingController();
 //BookSearch
 final typeControllerBookFromDate = TextEditingController();
 final typeControllerBookToDate = TextEditingController();
+
+//Ticket Payment
+final referroalCode = TextEditingController();
+final coupon = TextEditingController();
