@@ -29,6 +29,7 @@ class _TicketsState extends State<Tickets> {
                         child: Column(
                           children: [
                             Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -70,7 +71,6 @@ class _TicketsState extends State<Tickets> {
                                     ),
                                   ],
                                 ),
-                                Flexible(child: Container()),
                                 Row(
                                   children: [
                                     Container(
