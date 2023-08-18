@@ -344,6 +344,7 @@ class _HomeDetailsState extends State<HomeDetails> {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Image.asset(
                         "assets/Rectangle 34624088.png",

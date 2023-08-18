@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:partymania_users/screens/bookingtab/booking_detail.dart';
 import 'package:partymania_users/screens/dashboardpages/widget/home_details.dart';
 import 'package:partymania_users/utils/colors.dart';
 
