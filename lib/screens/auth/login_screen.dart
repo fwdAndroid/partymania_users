@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:partymania_users/screens/auth/getotp.dart';
 import 'package:partymania_users/screens/auth/sign_up_account.dart';
 import 'package:partymania_users/screens/main_dashboard.dart';
 import 'package:partymania_users/utils/button.dart';
@@ -65,10 +66,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   TextFormInputField(
                       preIcon: Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Image.asset(
-                          "assets/sms.png",
-                          width: 15,
-                          height: 15,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Image.asset(
+                            "assets/sms.png",
+                            width: 15,
+                            height: 15,
+                          ),
                         ),
                       ),
                       controller: loginEmailController,
@@ -95,13 +99,18 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   TextFormInputField(
                       suIcon: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (builder) => GetOtp()));
+                          },
                           child: Text(
                             "Get OTP",
                             style: TextStyle(color: otpColor),
                           )),
                       preIcon: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(16.0),
                         child: Image.asset(
                           "assets/lock.png",
                           width: 15,
