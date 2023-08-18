@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:partymania_users/screens/dashboardpages/widget/home_grid_widget.dart';
 import 'package:partymania_users/screens/dashboardpages/widget/home_listview_widget.dart';
+import 'package:partymania_users/screens/user_profile/bookmark.dart';
+import 'package:partymania_users/screens/user_profile/notifications.dart';
 import 'package:partymania_users/utils/colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:partymania_users/utils/textformfield.dart';
@@ -48,10 +50,8 @@ class _HomePageState extends State<HomePage> {
         actions: [
           InkWell(
             onTap: () {
-              // Navigator.push(
-              //     context,
-              //     MaterialPageRoute(
-              //         builder: (builder) => EventNearByYourFrame()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (builder) => Notifications()));
             },
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -62,12 +62,19 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Image.asset(
-              "assets/bookmark.png",
-              width: 28,
-              height: 28,
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (builder) => Bookmark()));
+              ;
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Image.asset(
+                "assets/bookmark.png",
+                width: 28,
+                height: 28,
+              ),
             ),
           )
         ],

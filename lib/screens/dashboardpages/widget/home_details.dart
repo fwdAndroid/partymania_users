@@ -426,10 +426,99 @@ class _HomeDetailsState extends State<HomeDetails> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset(
-                        "assets/dot.png",
-                        height: 48,
-                        width: 48,
+                      InkWell(
+                        onTap: () {
+                          showModalBottomSheet(
+                              context: context,
+                              builder: (context) {
+                                return Wrap(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Center(
+                                          child: Text(
+                                        "Invite Your Friends",
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.w600),
+                                      )),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Center(
+                                          child: Text(
+                                        "Get 150 Rupees When your friend\nactivates their account",
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w400),
+                                        textAlign: TextAlign.center,
+                                      )),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Image.asset(
+                                            "assets/Group 14436.png",
+                                            width: 50,
+                                            height: 50,
+                                          ),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          Image.asset(
+                                            "assets/Twitter.png",
+                                            width: 50,
+                                            height: 50,
+                                          ),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          Image.asset(
+                                            "assets/Instagram.png",
+                                            width: 50,
+                                            height: 50,
+                                          ),
+                                          SizedBox(
+                                            width: 20,
+                                          ),
+                                          Image.asset(
+                                            "assets/LinkedIn.png",
+                                            width: 50,
+                                            height: 50,
+                                          ),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          Image.asset(
+                                            "assets/WhatsApp.png",
+                                            width: 50,
+                                            height: 50,
+                                          ),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          Image.asset(
+                                            "assets/Facebook.png",
+                                            width: 50,
+                                            height: 50,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                );
+                              });
+                        },
+                        child: Image.asset(
+                          "assets/dot.png",
+                          height: 48,
+                          width: 48,
+                        ),
                       ),
                       SizedBox(
                         width: 8,
