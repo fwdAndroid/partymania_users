@@ -74,3 +74,14 @@ final walletController = TextEditingController();
 final emailController = TextEditingController();
 final subjectController = TextEditingController();
 final dse = TextEditingController();
+
+//Type
+final typeController = TextEditingController();
+final typeControllerTo = TextEditingController();
+final typeControllerFrom = TextEditingController();
+final typeControllerToDate = TextEditingController();
+final typeControllerFromDate = TextEditingController();
+
+//BookSearch
+final typeControllerBookFromDate = TextEditingController();
+final typeControllerBookToDate = TextEditingController();

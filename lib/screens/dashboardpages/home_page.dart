@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:partymania_users/screens/dashboardpages/widget/home_grid_widget.dart';
 import 'package:partymania_users/screens/dashboardpages/widget/home_listview_widget.dart';
+import 'package:partymania_users/screens/user_profile/book_serarch_screen.dart';
 import 'package:partymania_users/screens/user_profile/bookmark.dart';
+import 'package:partymania_users/screens/user_profile/filter_screen.dart';
 import 'package:partymania_users/screens/user_profile/notifications.dart';
 import 'package:partymania_users/utils/colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -100,20 +102,36 @@ class _HomePageState extends State<HomePage> {
                         controller: controller,
                         hintText: "Search Events/Venue",
                         textInputType: TextInputType.text)),
-                Expanded(
-                  flex: 1,
-                  child: Image.asset(
-                    "assets/booksearch.png",
-                    height: 50,
-                    width: 50,
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (builder) => BookSearchScreen()));
+                  },
+                  child: Expanded(
+                    flex: 1,
+                    child: Image.asset(
+                      "assets/booksearch.png",
+                      height: 50,
+                      width: 50,
+                    ),
                   ),
                 ),
-                Expanded(
-                  flex: 1,
-                  child: Image.asset(
-                    "assets/filter.png",
-                    height: 50,
-                    width: 50,
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (builder) => FilterScreen()));
+                  },
+                  child: Expanded(
+                    flex: 1,
+                    child: Image.asset(
+                      "assets/filter.png",
+                      height: 50,
+                      width: 50,
+                    ),
                   ),
                 ),
               ],
