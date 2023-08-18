@@ -20,7 +20,7 @@ class _ClubGridWidgetState extends State<ClubGridWidget> {
         itemBuilder: (BuildContext context, int index) {
           return Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Image.asset("assets/Event listing.png"),
+            child: Image.asset("assets/Club listing.png"),
           );
         },
       ),

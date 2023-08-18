@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:partymania_users/utils/button.dart';
 import 'package:partymania_users/utils/colors.dart';
 import 'package:partymania_users/utils/controllers.dart';
 import 'package:partymania_users/utils/textformfield.dart';
@@ -111,6 +112,7 @@ class _HelpState extends State<Help> {
               ],
             ),
           ),
+          SaveButton(title: "Submit", onTap: () {})
         ],
       ),
     );

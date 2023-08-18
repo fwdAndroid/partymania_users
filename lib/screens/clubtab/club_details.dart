@@ -25,12 +25,22 @@ class _ClubDetailsState extends State<ClubDetails> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text(
-                "Tuborg Club",
-                style: TextStyle(
-                    color: textColor,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Tuborg Club",
+                    style: TextStyle(
+                        color: textColor,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 20),
+                  ),
+                  Image.asset(
+                    "assets/dots.png",
+                    height: 20,
+                    width: 20,
+                  )
+                ],
               ),
             ),
             Padding(

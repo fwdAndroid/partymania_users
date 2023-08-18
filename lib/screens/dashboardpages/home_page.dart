@@ -109,13 +109,10 @@ class _HomePageState extends State<HomePage> {
                         MaterialPageRoute(
                             builder: (builder) => BookSearchScreen()));
                   },
-                  child: Expanded(
-                    flex: 1,
-                    child: Image.asset(
-                      "assets/booksearch.png",
-                      height: 50,
-                      width: 50,
-                    ),
+                  child: Image.asset(
+                    "assets/booksearch.png",
+                    height: 50,
+                    width: 50,
                   ),
                 ),
                 InkWell(
@@ -125,13 +122,10 @@ class _HomePageState extends State<HomePage> {
                         MaterialPageRoute(
                             builder: (builder) => FilterScreen()));
                   },
-                  child: Expanded(
-                    flex: 1,
-                    child: Image.asset(
-                      "assets/filter.png",
-                      height: 50,
-                      width: 50,
-                    ),
+                  child: Image.asset(
+                    "assets/filter.png",
+                    height: 50,
+                    width: 50,
                   ),
                 ),
               ],

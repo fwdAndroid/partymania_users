@@ -244,6 +244,28 @@ class _BookingDetailsState extends State<BookingDetails> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
+              child: Image.asset("assets/to.png"),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Image.asset("assets/to.png"),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Image.asset("assets/to.png"),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                "Location",
+                style: TextStyle(
+                    color: textColor,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 20),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
               child: Image.asset("assets/map.png"),
             ),
             Padding(
