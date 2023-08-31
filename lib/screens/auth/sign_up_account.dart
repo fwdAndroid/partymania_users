@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:partymania_users/screens/auth/login_screen.dart';
+import 'package:partymania_users/screens/main_dashboard.dart';
+import 'package:partymania_users/services/auth_methods.dart';
 import 'package:partymania_users/utils/button.dart';
 import 'package:partymania_users/utils/colors.dart';
 import 'package:partymania_users/utils/controllers.dart';
 import 'package:partymania_users/utils/textformfield.dart';
 import 'package:intl/intl.dart';
+import 'package:partymania_users/utils/utils.dart';
 
 class SignUpAccount extends StatefulWidget {
   const SignUpAccount({super.key});
@@ -23,6 +26,7 @@ class _SignUpAccountState extends State<SignUpAccount> {
     'Female',
     'Others',
   ];
+  bool _isLoading = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -150,7 +154,7 @@ class _SignUpAccountState extends State<SignUpAccount> {
                       ),
                       textInputType: TextInputType.number,
                       hintText: "424-232-000",
-                      controller: phoneNumberController,
+                      controller: phoneNumberSignUpController,
                     )
                   ],
                 ),
@@ -281,7 +285,7 @@ class _SignUpAccountState extends State<SignUpAccount> {
                       ),
                       textInputType: TextInputType.text,
                       hintText: "Enter Password",
-                      controller: createPassword,
+                      controller: createSignUpPassword,
                     )
                   ],
                 ),
@@ -312,7 +316,7 @@ class _SignUpAccountState extends State<SignUpAccount> {
                       ),
                       textInputType: TextInputType.text,
                       hintText: "Enter Password",
-                      controller: confrimPassword,
+                      controller: confrimSignUpPassword,
                     )
                   ],
                 ),
@@ -333,15 +337,11 @@ class _SignUpAccountState extends State<SignUpAccount> {
               const SizedBox(
                 height: 15,
               ),
-              Center(
-                  child: SaveButton(
-                      title: 'Signup',
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (builder) => LoginScreen()));
-                      })),
+              _isLoading
+                  ? Center(
+                      child: CircularProgressIndicator(),
+                    )
+                  : Center(child: SaveButton(title: "SignUp", onTap: onTap)),
               const SizedBox(
                 height: 15,
               ),
@@ -407,6 +407,31 @@ class _SignUpAccountState extends State<SignUpAccount> {
       });
     } else {
       print("Date is not selected");
+    }
+  }
+
+  void onTap() async {
+    setState(() {
+      _isLoading = true;
+    });
+    String rse = await AuthMethods().signUpUser(
+        gender: dropdownvalue,
+        dob: dateController.text,
+        email: signUpEmailController.text,
+        phone_Number: phoneNumberSignUpController.text,
+        confrimPassword: confrimSignUpPassword.text,
+        createPassword: createSignUpPassword.text,
+        fullName: signUpFullNameController.text);
+
+    print(rse);
+    setState(() {
+      _isLoading = false;
+    });
+    if (rse != 'sucess') {
+      showSnakBar(rse, context);
+    } else {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (builder) => MainScreen()));
     }
   }
 }
