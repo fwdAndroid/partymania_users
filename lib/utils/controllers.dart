@@ -10,6 +10,7 @@ final signUpEmailController = TextEditingController();
 final phoneNumberController = TextEditingController();
 final createPassword = TextEditingController();
 final confrimPassword = TextEditingController();
+final dateController = TextEditingController();
 
 //Create Profile
 final imageController = TextEditingController();

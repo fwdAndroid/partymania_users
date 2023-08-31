@@ -4,6 +4,7 @@ import 'package:partymania_users/utils/button.dart';
 import 'package:partymania_users/utils/colors.dart';
 import 'package:partymania_users/utils/controllers.dart';
 import 'package:partymania_users/utils/textformfield.dart';
+import 'package:intl/intl.dart';
 
 class SignUpAccount extends StatefulWidget {
   const SignUpAccount({super.key});
@@ -13,6 +14,15 @@ class SignUpAccount extends StatefulWidget {
 }
 
 class _SignUpAccountState extends State<SignUpAccount> {
+  // Initial Selected Value
+  String dropdownvalue = 'Male';
+
+  // List of items in our dropdown menu
+  var items = [
+    'Male',
+    'Female',
+    'Others',
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -164,6 +174,9 @@ class _SignUpAccountState extends State<SignUpAccount> {
                             height: 7,
                           ),
                           TextFormInputField(
+                            onTap: () {
+                              _selectDate(); // Call Function that has showDatePicker()
+                            },
                             suIcon: Padding(
                               padding: const EdgeInsets.all(13.0),
                               child: Image.asset(
@@ -174,7 +187,7 @@ class _SignUpAccountState extends State<SignUpAccount> {
                             ),
                             textInputType: TextInputType.text,
                             hintText: "Select DOB",
-                            controller: clubStateController,
+                            controller: dateController,
                           ),
                         ],
                       ),
@@ -196,19 +209,46 @@ class _SignUpAccountState extends State<SignUpAccount> {
                           const SizedBox(
                             height: 7,
                           ),
-                          TextFormInputField(
-                            suIcon: Padding(
-                              padding: const EdgeInsets.all(13.0),
-                              child: Image.asset(
-                                "assets/Vector.png",
-                                width: 10,
-                                height: 10,
+                          Container(
+                              height: 60,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                    color: borderColor.withOpacity(.4)),
+                                borderRadius: BorderRadius.circular(10),
                               ),
-                            ),
-                            textInputType: TextInputType.text,
-                            hintText: "Select Gender",
-                            controller: clubCityController,
-                          ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Center(
+                                  child: DropdownButton(
+                                    underline: SizedBox(),
+                                    isExpanded: true,
+                                    isDense: true,
+                                    icon: Image.asset(
+                                      "assets/Vector.png",
+                                      height: 18,
+                                      width: 18,
+                                    ),
+                                    value: dropdownvalue,
+                                    items: items.map((String items) {
+                                      return DropdownMenuItem(
+                                        value: items,
+                                        child: Text(
+                                          items,
+                                          style: TextStyle(color: textColor),
+                                        ),
+                                      );
+                                    }).toList(),
+                                    dropdownColor: Colors
+                                        .black, //dropdown background color
+
+                                    onChanged: (String? newValue) {
+                                      setState(() {
+                                        dropdownvalue = newValue!;
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ))
                         ],
                       ),
                     ),
@@ -343,5 +383,30 @@ class _SignUpAccountState extends State<SignUpAccount> {
         ),
       ),
     );
+  }
+
+  //Functions
+  void _selectDate() async {
+    DateTime? pickedDate = await showDatePicker(
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime(
+            2000), //DateTime.now() - not to allow to choose before today.
+        lastDate: DateTime(2101));
+
+    if (pickedDate != null) {
+      print(pickedDate); //pickedDate output format => 2021-03-10 00:00:00.000
+      String formattedDate = DateFormat('yyyy-MM-dd').format(pickedDate);
+      print(
+          formattedDate); //formatted date output using intl package =>  2021-03-16
+      //you can implement different kind of Date Format here according to your requirement
+
+      setState(() {
+        dateController.text =
+            formattedDate; //set output date to TextField value.
+      });
+    } else {
+      print("Date is not selected");
+    }
   }
 }
