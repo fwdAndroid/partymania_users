@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:partymania_users/screens/bookingtab/widget/booking_list_view_widget.dart';
+import 'package:partymania_users/screens/bookingtab/widget/past_event_widget.dart';
 import 'package:partymania_users/utils/colors.dart';
 
 class EndEvents extends StatefulWidget {
@@ -17,7 +17,7 @@ class _EndEventsState extends State<EndEvents> {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: BookingListViewWidget(),
+          child: PastEventWidget(),
         ),
       ),
     );
