@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:partymania_users/screens/user_profile/edit_user_profile.dart';
 import 'package:partymania_users/screens/user_profile/help.dart';
@@ -33,96 +35,106 @@ class _ProfilePageState extends State<ProfilePage> {
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    "assets/edit.png",
-                    width: 80,
-                    height: 80,
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "John Wick",
-                        style: TextStyle(
-                            color: textColor,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: Row(
+              child: StreamBuilder<Object>(
+                  stream: FirebaseFirestore.instance
+                      .collection("user")
+                      .doc(FirebaseAuth.instance.currentUser!.uid)
+                      .snapshots(),
+                  builder: (context, AsyncSnapshot snapshot) {
+                    if (!snapshot.hasData) {
+                      return new CircularProgressIndicator();
+                    }
+                    var document = snapshot.data;
+                    return Row(
+                      children: [
+                        // Image.network(
+                        //   document[''],
+                        //   width: 80,
+                        //   height: 80,
+                        // ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Image.asset(
-                              "assets/email.png",
-                              height: 20,
-                              width: 20,
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
                             Text(
-                              "johnwick@gmail.com",
-                              style: TextStyle(color: grey),
+                              document['fullName'],
+                              style: TextStyle(
+                                  color: textColor,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(2.0),
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    "assets/email.png",
+                                    height: 20,
+                                    width: 20,
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Text(
+                                    document['email'],
+                                    style: TextStyle(color: grey),
+                                  )
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(2.0),
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    "assets/call.png",
+                                    height: 20,
+                                    width: 20,
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Text(
+                                    document['phone_Number'],
+                                    style: TextStyle(color: grey),
+                                  )
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(2.0),
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    "assets/medal.png",
+                                    height: 20,
+                                    width: 20,
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Text(
+                                    "Referral Code:",
+                                    style: TextStyle(color: grey),
+                                  ),
+                                  Text(
+                                    "JOHN121",
+                                    style: TextStyle(color: textColor),
+                                  ),
+                                  Text(
+                                    " Copy Code",
+                                    style: TextStyle(color: otpColor),
+                                  )
+                                ],
+                              ),
                             )
                           ],
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: Row(
-                          children: [
-                            Image.asset(
-                              "assets/call.png",
-                              height: 20,
-                              width: 20,
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text(
-                              "+91 12325 12325",
-                              style: TextStyle(color: grey),
-                            )
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: Row(
-                          children: [
-                            Image.asset(
-                              "assets/medal.png",
-                              height: 20,
-                              width: 20,
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text(
-                              "Referral Code:",
-                              style: TextStyle(color: grey),
-                            ),
-                            Text(
-                              "JOHN121",
-                              style: TextStyle(color: textColor),
-                            ),
-                            Text(
-                              " Copy Code",
-                              style: TextStyle(color: otpColor),
-                            )
-                          ],
-                        ),
-                      )
-                    ],
-                  )
-                ],
-              ),
+                      ],
+                    );
+                  }),
             ),
             const SizedBox(
               height: 15,
@@ -262,7 +274,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ListTile(
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (builder) => Settings()));
+                    MaterialPageRoute(builder: (builder) => MySettings()));
               },
               leading: Icon(
                 Icons.settings,

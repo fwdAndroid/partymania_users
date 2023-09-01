@@ -40,7 +40,7 @@ class TextFormInputField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 335,
-      height: 60,
+      height: 65,
       child: TextFormField(
         maxLines: maxLines,
         style: TextStyle(color: textColor),
