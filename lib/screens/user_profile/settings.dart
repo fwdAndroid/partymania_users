@@ -1,8 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:partymania_users/screens/auth/login_screen.dart';
 import 'package:partymania_users/screens/user_profile/change_password.dart';
 import 'package:partymania_users/utils/button.dart';
 import 'package:partymania_users/utils/colors.dart';
+import 'package:partymania_users/utils/utils.dart';
 
 class Settings extends StatefulWidget {
   const Settings({super.key});
@@ -104,11 +107,18 @@ class _SettingsState extends State<Settings> {
                         children: [
                           SaveButton(
                             title: ("Delete"),
-                            onTap: () {
-                              Navigator.push(
+                            onTap: () async {
+                              showSnakBar(
+                                  "Account Deleted Successfully", context);
+                              Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
                                       builder: (builder) => LoginScreen()));
+                              FirebaseAuth.instance.currentUser!.delete();
+                              await FirebaseFirestore.instance
+                                  .collection("user")
+                                  .doc(FirebaseAuth.instance.currentUser!.uid)
+                                  .delete();
                             },
                           ),
                           TextButton(
@@ -170,11 +180,16 @@ class _SettingsState extends State<Settings> {
                         children: [
                           SaveButton(
                             title: ("Logout"),
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (builder) => LoginScreen()));
+                            onTap: () async {
+                              await FirebaseAuth.instance
+                                  .signOut()
+                                  .then((value) => {
+                                        Navigator.pushReplacement(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (builder) =>
+                                                    LoginScreen()))
+                                      });
                             },
                           ),
                           TextButton(
