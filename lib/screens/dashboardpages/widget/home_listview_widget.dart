@@ -68,6 +68,7 @@ class _HomeListViewWidgetState extends State<HomeListViewWidget> {
                                             MaterialPageRoute(
                                                 builder: (builder) =>
                                                     HomeDetails(
+                                                      clubuid: data['uid'],
                                                       eventPrice:
                                                           data['eventPrice'],
                                                       eventAmenities: data[

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:partymania_users/screens/tickettab/ticket_payment.dart';
 import 'package:partymania_users/utils/button.dart';
 import 'package:partymania_users/utils/colors.dart';
-import 'package:partymania_users/utils/controllers.dart';
 
 class Tickets extends StatefulWidget {
   final uuid;
@@ -21,6 +20,7 @@ class Tickets extends StatefulWidget {
   final table;
   final timeDeadlineTicket;
   final eventPrice;
+  final clubUid;
   Tickets(
       {super.key,
       required this.eventAmenities,
@@ -30,6 +30,7 @@ class Tickets extends StatefulWidget {
       required this.eventDescription,
       required this.eventLocation,
       required this.eventName,
+      required this.clubUid,
       required this.eventPhoto,
       required this.eventType,
       required this.fromTime,
@@ -222,19 +223,14 @@ class _TicketsState extends State<Tickets> {
                       fontSize: 18,
                       fontWeight: FontWeight.w500),
                 ),
-                InkWell(
-                  onTap: () {
-                    print(multivalue(_counter, int.parse(widget.eventPrice)));
-                  },
-                  child: Text(
-                    "Rs " +
-                        multivalue(_counter, int.parse(widget.eventPrice))
-                            .toString(),
-                    style: TextStyle(
-                        color: textColor,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500),
-                  ),
+                Text(
+                  "Rs " +
+                      multivalue(_counter, int.parse(widget.eventPrice))
+                          .toString(),
+                  style: TextStyle(
+                      color: textColor,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500),
                 ),
               ],
             ),
@@ -247,8 +243,23 @@ class _TicketsState extends State<Tickets> {
             child: SaveButton(
                 title: "Continue - Pay at venue",
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (builder) => TicketPayment()));
+                  print(multivalue(_counter, int.parse(widget.eventPrice)));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (builder) => TicketPayment(
+                                numofseats: _counter,
+                                coupon: widget.nameOffer,
+                                clubuid: widget.clubUid,
+                                coupleValue: widget.coupleValue
+                                    .toString()
+                                    .substring(6)
+                                    .toUpperCase(),
+                                eventUuid: widget.uuid,
+                                fromTime: widget.fromTime,
+                                eventCost: multivalue(
+                                    _counter, int.parse(widget.eventPrice)),
+                              )));
                 }),
           )
         ],

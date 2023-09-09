@@ -5,6 +5,7 @@ import 'package:partymania_users/utils/colors.dart';
 
 class HomeDetails extends StatefulWidget {
   final uuid;
+  final clubuid;
   final coupleValue;
   final eventAmenities;
   final eventCoverPhoto;
@@ -23,6 +24,7 @@ class HomeDetails extends StatefulWidget {
   HomeDetails(
       {super.key,
       required this.eventAmenities,
+      required this.clubuid,
       required this.coupleValue,
       required this.eventCoverPhoto,
       required this.eventDate,
@@ -517,6 +519,7 @@ class _HomeDetailsState extends State<HomeDetails> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (builder) => TicketTab(
+                                            clubuid: widget.clubuid,
                                             eventPrice:
                                                 widget.eventPrice.toString(),
                                             eventAmenities:

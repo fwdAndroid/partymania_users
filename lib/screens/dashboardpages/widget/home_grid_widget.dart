@@ -69,6 +69,7 @@ class _HomeGridWidgetState extends State<HomeGridWidget> {
                                         context,
                                         MaterialPageRoute(
                                             builder: (builder) => HomeDetails(
+                                                  clubuid: data['uid'],
                                                   eventPrice:
                                                       data['eventPrice'],
                                                   eventAmenities:
