@@ -4,7 +4,40 @@ import 'package:partymania_users/utils/button.dart';
 import 'package:partymania_users/utils/colors.dart';
 
 class Tickets extends StatefulWidget {
-  const Tickets({super.key});
+  final uuid;
+  final coupleValue;
+  final eventAmenities;
+  final eventCoverPhoto;
+  final eventDate;
+  final eventDescription;
+  final eventLocation;
+  final eventName;
+  final eventPhoto;
+  final eventType;
+  final fromTime;
+  final nameOffer;
+  final tickets;
+  final table;
+  final timeDeadlineTicket;
+  final eventPrice;
+  Tickets(
+      {super.key,
+      required this.eventAmenities,
+      required this.coupleValue,
+      required this.eventCoverPhoto,
+      required this.eventDate,
+      required this.eventDescription,
+      required this.eventLocation,
+      required this.eventName,
+      required this.eventPhoto,
+      required this.eventType,
+      required this.fromTime,
+      required this.nameOffer,
+      required this.table,
+      required this.tickets,
+      required this.timeDeadlineTicket,
+      required this.eventPrice,
+      required this.uuid});
 
   @override
   State<Tickets> createState() => _TicketsState();

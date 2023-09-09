@@ -516,7 +516,29 @@ class _HomeDetailsState extends State<HomeDetails> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (builder) => TicketTab()));
+                                      builder: (builder) => TicketTab(
+                                            eventPrice:
+                                                widget.eventPrice.toString(),
+                                            eventAmenities:
+                                                widget.eventAmenities,
+                                            eventDate: widget.eventDate,
+                                            eventCoverPhoto:
+                                                widget.eventCoverPhoto,
+                                            eventDescription:
+                                                widget.eventDescription,
+                                            eventLocation: widget.eventLocation,
+                                            fromTime: widget.fromTime,
+                                            coupleValue: widget.coupleValue,
+                                            eventName: widget.eventName,
+                                            uuid: widget.uuid,
+                                            eventPhoto: widget.eventPhoto,
+                                            eventType: widget.eventType,
+                                            nameOffer: widget.nameOffer,
+                                            table: widget.table,
+                                            tickets: widget.tickets,
+                                            timeDeadlineTicket:
+                                                widget.timeDeadlineTicket,
+                                          )));
                             }),
                       ),
                     ],

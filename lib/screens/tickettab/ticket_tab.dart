@@ -4,7 +4,40 @@ import 'package:partymania_users/screens/tickettab/tickets.dart';
 import 'package:partymania_users/utils/colors.dart';
 
 class TicketTab extends StatefulWidget {
-  const TicketTab({super.key});
+  final uuid;
+  final coupleValue;
+  final eventAmenities;
+  final eventCoverPhoto;
+  final eventDate;
+  final eventDescription;
+  final eventLocation;
+  final eventName;
+  final eventPhoto;
+  final eventType;
+  final fromTime;
+  final nameOffer;
+  final tickets;
+  final table;
+  final timeDeadlineTicket;
+  final eventPrice;
+  TicketTab(
+      {super.key,
+      required this.eventAmenities,
+      required this.coupleValue,
+      required this.eventCoverPhoto,
+      required this.eventDate,
+      required this.eventDescription,
+      required this.eventLocation,
+      required this.eventName,
+      required this.eventPhoto,
+      required this.eventType,
+      required this.fromTime,
+      required this.nameOffer,
+      required this.table,
+      required this.tickets,
+      required this.timeDeadlineTicket,
+      required this.eventPrice,
+      required this.uuid});
 
   @override
   State<TicketTab> createState() => _TicketTabState();
@@ -43,7 +76,24 @@ class _TicketTabState extends State<TicketTab> {
         ),
         body: TabBarView(
           children: [
-            Tickets(),
+            Tickets(
+              eventPrice: widget.eventPrice.toString(),
+              eventAmenities: widget.eventAmenities,
+              eventDate: widget.eventDate,
+              eventCoverPhoto: widget.eventCoverPhoto,
+              eventDescription: widget.eventDescription,
+              eventLocation: widget.eventLocation,
+              fromTime: widget.fromTime,
+              coupleValue: widget.coupleValue,
+              eventName: widget.eventName,
+              uuid: widget.uuid,
+              eventPhoto: widget.eventPhoto,
+              eventType: widget.eventType,
+              nameOffer: widget.nameOffer,
+              table: widget.table,
+              tickets: widget.tickets,
+              timeDeadlineTicket: widget.timeDeadlineTicket,
+            ),
             Tables(),
           ],
         ),
