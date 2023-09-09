@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:partymania_users/screens/dashboardpages/widget/home_details.dart';
 import 'package:partymania_users/utils/colors.dart';
 
 class HomeGridWidget extends StatefulWidget {
@@ -64,33 +65,35 @@ class _HomeGridWidgetState extends State<HomeGridWidget> {
                               children: [
                                 InkWell(
                                   onTap: () {
-                                    // Navigator.push(
-                                    //     context,
-                                    //     MaterialPageRoute(
-                                    //         builder: (builder) => EventDetails(
-                                    //               eventAmenities:
-                                    //                   data['eventAmenities'],
-                                    //               eventDate: data['eventDate'],
-                                    //               eventCoverPhoto:
-                                    //                   data['eventCoverPhoto'],
-                                    //               eventDescription:
-                                    //                   data['eventDescription'],
-                                    //               eventLocation:
-                                    //                   data['eventLocation'],
-                                    //               fromTime: data['fromTime'],
-                                    //               coupleValue:
-                                    //                   data['coupleValue'],
-                                    //               eventName: data['eventName'],
-                                    //               uuid: data['uuid'],
-                                    //               eventPhoto:
-                                    //                   data['eventPhoto'],
-                                    //               eventType: data['eventType'],
-                                    //               nameOffer: data['nameOffer'],
-                                    //               table: data['tables'],
-                                    //               tickets: data['tickets'],
-                                    //               timeDeadlineTicket: data[
-                                    //                   'timeDeadlineTicket'],
-                                    //             )));
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (builder) => HomeDetails(
+                                                  eventPrice:
+                                                      data['eventPrice'],
+                                                  eventAmenities:
+                                                      data['eventAmenities'],
+                                                  eventDate: data['eventDate'],
+                                                  eventCoverPhoto:
+                                                      data['eventCoverPhoto'],
+                                                  eventDescription:
+                                                      data['eventDescription'],
+                                                  eventLocation:
+                                                      data['eventLocation'],
+                                                  fromTime: data['fromTime'],
+                                                  coupleValue:
+                                                      data['coupleValue'],
+                                                  eventName: data['eventName'],
+                                                  uuid: data['uuid'],
+                                                  eventPhoto:
+                                                      data['eventPhoto'],
+                                                  eventType: data['eventType'],
+                                                  nameOffer: data['nameOffer'],
+                                                  table: data['tables'],
+                                                  tickets: data['tickets'],
+                                                  timeDeadlineTicket: data[
+                                                      'timeDeadlineTicket'],
+                                                )));
                                   },
                                   child: Container(
                                     height: 150,

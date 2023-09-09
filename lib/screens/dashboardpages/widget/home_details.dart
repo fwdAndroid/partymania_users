@@ -5,7 +5,40 @@ import 'package:partymania_users/utils/colors.dart';
 import 'package:partymania_users/utils/longtext.dart';
 
 class HomeDetails extends StatefulWidget {
-  const HomeDetails({super.key});
+  final uuid;
+  final coupleValue;
+  final eventAmenities;
+  final eventCoverPhoto;
+  final eventDate;
+  final eventDescription;
+  final eventLocation;
+  final eventName;
+  final eventPhoto;
+  final eventType;
+  final fromTime;
+  final nameOffer;
+  final tickets;
+  final table;
+  final timeDeadlineTicket;
+  final eventPrice;
+  HomeDetails(
+      {super.key,
+      required this.eventAmenities,
+      required this.coupleValue,
+      required this.eventCoverPhoto,
+      required this.eventDate,
+      required this.eventDescription,
+      required this.eventLocation,
+      required this.eventName,
+      required this.eventPhoto,
+      required this.eventType,
+      required this.fromTime,
+      required this.nameOffer,
+      required this.table,
+      required this.tickets,
+      required this.timeDeadlineTicket,
+      required this.eventPrice,
+      required this.uuid});
 
   @override
   State<HomeDetails> createState() => _HomeDetailsState();
