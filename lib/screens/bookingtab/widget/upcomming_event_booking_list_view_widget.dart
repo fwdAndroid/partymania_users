@@ -16,10 +16,7 @@ class _BookingListViewWidgetState extends State<BookingListViewWidget> {
     return SizedBox(
       height: MediaQuery.of(context).size.height / 1.5,
       child: StreamBuilder(
-          stream: FirebaseFirestore.instance
-              .collection("events")
-              .where("eventCreated", isEqualTo: true)
-              .snapshots(),
+          stream: FirebaseFirestore.instance.collection("events").snapshots(),
           builder: (context, snapshot) {
             if (!snapshot.hasData) {
               return const Center(
@@ -37,7 +34,6 @@ class _BookingListViewWidgetState extends State<BookingListViewWidget> {
                   return StreamBuilder<Object>(
                       stream: FirebaseFirestore.instance
                           .collection("events")
-                          .where("eventCreated", isEqualTo: true)
                           .snapshots(),
                       builder: (BuildContext context, AsyncSnapshot snapshot) {
                         if (!snapshot.hasData) {
