@@ -136,10 +136,28 @@ class _HomeGridWidgetState extends State<HomeGridWidget> {
                                                     padding:
                                                         const EdgeInsets.all(
                                                             8.0),
-                                                    child: Text(
-                                                      data['eventDate'],
-                                                      style: TextStyle(
-                                                          color: Colors.white),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Text(
+                                                          data[
+                                                              'eventStartDate'],
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.white),
+                                                        ),
+                                                        SizedBox(
+                                                          width: 7,
+                                                        ),
+                                                        Text(
+                                                          data['fromEventDate'],
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.white),
+                                                        ),
+                                                      ],
                                                     ),
                                                   ),
                                                 ),

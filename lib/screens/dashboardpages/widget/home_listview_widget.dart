@@ -150,7 +150,7 @@ class _HomeListViewWidgetState extends State<HomeListViewWidget> {
                                                       width: 50,
                                                       child: Center(
                                                         child: Text(
-                                                          "Music",
+                                                          data['eventType'],
                                                           style: TextStyle(
                                                               color: otpColor),
                                                           textAlign:
@@ -199,12 +199,24 @@ class _HomeListViewWidgetState extends State<HomeListViewWidget> {
                                                         width: 1,
                                                         color: textColor
                                                             .withOpacity(.80))),
-                                                child: Text(
-                                                  data['eventDate'],
-                                                  style: TextStyle(
-                                                      color: textColor
-                                                          .withOpacity(.6)),
-                                                  textAlign: TextAlign.center,
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Text(
+                                                      data['eventStartDate'],
+                                                      style: TextStyle(
+                                                          color: Colors.white),
+                                                    ),
+                                                    SizedBox(
+                                                      width: 7,
+                                                    ),
+                                                    Text(
+                                                      data['fromEventDate'],
+                                                      style: TextStyle(
+                                                          color: Colors.white),
+                                                    ),
+                                                  ],
                                                 ),
                                               ),
                                             ],
