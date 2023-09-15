@@ -292,10 +292,7 @@ class _TicketPaymentState extends State<TicketPayment> {
                                       "clubid": widget.clubuid,
                                       "eventuuid": widget.eventUuid,
                                       "paymentmode": "Online Payment",
-                                      'coupon': coupon.text == "" ||
-                                              coupon.text == null
-                                          ? null
-                                          : "$coupon.text",
+                                      'coupon': coupon.text,
                                       "bookinguuid": bookid,
                                       "name": document['fullName'],
                                       "phone": document['phone_Number'],
