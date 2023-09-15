@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:partymania_users/screens/tickettab/ticket_tab.dart';
 import 'package:partymania_users/utils/button.dart';
 import 'package:partymania_users/utils/colors.dart';
 
@@ -545,33 +546,40 @@ class _HomeDetailsState extends State<HomeDetails> {
                           child: SaveButton(
                               title: widget.eventTicketPrice.toString(),
                               onTap: () {
-                                // Navigator.push(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (builder) => TicketTab(
-                                //               clubuid: widget.clubuid,
-                                //               eventPrice:
-                                //                   widget.eventPrice.toString(),
-                                //               eventAmenities:
-                                //                   widget.eventAmenities,
-                                //               eventDate: widget.eventDate,
-                                //               eventCoverPhoto:
-                                //                   widget.eventCoverPhoto,
-                                //               eventDescription:
-                                //                   widget.eventDescription,
-                                //               eventLocation: widget.eventLocation,
-                                //               fromTime: widget.fromTime,
-                                //               coupleValue: widget.coupleValue,
-                                //               eventName: widget.eventName,
-                                //               uuid: widget.uuid,
-                                //               eventPhoto: widget.eventPhoto,
-                                //               eventType: widget.eventType,
-                                //               nameOffer: widget.nameOffer,
-                                //               table: widget.table,
-                                //               tickets: widget.tickets,
-                                //               timeDeadlineTicket:
-                                //                   widget.timeDeadlineTicket,
-                                //             )));
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (builder) => TicketTab(
+                                              clubuid: widget.clubuid,
+                                              eventPrice: widget
+                                                  .eventTicketPrice
+                                                  .toString(),
+                                              eventAmenities:
+                                                  widget.eventAmenities,
+                                              eventDate: widget.eventStartDate,
+                                              eventCoverPhoto:
+                                                  widget.eventCoverPhoto,
+                                              eventDescription:
+                                                  widget.eventDescription,
+                                              eventLocation:
+                                                  widget.eventLocation,
+                                              fromTime:
+                                                  widget.eventTicketTimeBefore,
+                                              coupleValue: widget.artistType,
+                                              eventName: widget.eventName,
+                                              uuid: widget.uuid,
+                                              eventPhoto: widget.eventPhoto,
+                                              eventType: widget.eventType,
+                                              eventTicketSession:
+                                                  widget.eventTicketSession,
+                                              nameOffer: widget.offerName,
+                                              table: widget.tableNumber,
+                                              participantType:
+                                                  widget.participantType,
+                                              tickets: widget.eventTotalTickets,
+                                              timeDeadlineTicket:
+                                                  widget.timeDeadlineTicket,
+                                            )));
                               }),
                         ),
                       ],

@@ -5,6 +5,7 @@ import 'package:partymania_users/utils/colors.dart';
 
 class TicketTab extends StatefulWidget {
   final uuid;
+  final participantType;
   final clubuid;
   final coupleValue;
   final eventAmenities;
@@ -18,6 +19,7 @@ class TicketTab extends StatefulWidget {
   final fromTime;
   final nameOffer;
   final tickets;
+  final eventTicketSession;
   final table;
   final timeDeadlineTicket;
   final eventPrice;
@@ -29,6 +31,7 @@ class TicketTab extends StatefulWidget {
       required this.eventCoverPhoto,
       required this.eventDate,
       required this.eventDescription,
+      required this.eventTicketSession,
       required this.eventLocation,
       required this.eventName,
       required this.eventPhoto,
@@ -36,6 +39,7 @@ class TicketTab extends StatefulWidget {
       required this.fromTime,
       required this.nameOffer,
       required this.table,
+      required this.participantType,
       required this.tickets,
       required this.timeDeadlineTicket,
       required this.eventPrice,
@@ -79,6 +83,7 @@ class _TicketTabState extends State<TicketTab> {
         body: TabBarView(
           children: [
             Tickets(
+              participantType: widget.participantType,
               clubUid: widget.clubuid,
               eventPrice: widget.eventPrice.toString(),
               eventAmenities: widget.eventAmenities,
@@ -93,6 +98,7 @@ class _TicketTabState extends State<TicketTab> {
               eventPhoto: widget.eventPhoto,
               eventType: widget.eventType,
               nameOffer: widget.nameOffer,
+              eventTicketSession: widget.eventTicketSession,
               table: widget.table,
               tickets: widget.tickets,
               timeDeadlineTicket: widget.timeDeadlineTicket,

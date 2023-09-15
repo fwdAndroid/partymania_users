@@ -15,13 +15,17 @@ class TicketPayment extends StatefulWidget {
   final numofseats;
   final coupon;
   final clubuid;
+  final artistType;
   final fromTime;
+  final eventTicketSession;
   const TicketPayment({
     super.key,
     required this.coupleValue,
     required this.eventCost,
+    required this.eventTicketSession,
     required this.eventUuid,
     required this.fromTime,
+    required this.artistType,
     required this.numofseats,
     required this.coupon,
     required this.clubuid,
@@ -113,7 +117,9 @@ class _TicketPaymentState extends State<TicketPayment> {
                                         ],
                                       ),
                                       Text(
-                                        "Guestlist",
+                                        widget.artistType
+                                            .toString()
+                                            .substring(7),
                                         style: TextStyle(color: grey),
                                       )
                                     ],

@@ -14,8 +14,10 @@ class Tickets extends StatefulWidget {
   final eventName;
   final eventPhoto;
   final eventType;
+  final eventTicketSession;
   final fromTime;
   final nameOffer;
+  final participantType;
   final tickets;
   final table;
   final timeDeadlineTicket;
@@ -26,6 +28,8 @@ class Tickets extends StatefulWidget {
       required this.eventAmenities,
       required this.coupleValue,
       required this.eventCoverPhoto,
+      required this.participantType,
+      required this.eventTicketSession,
       required this.eventDate,
       required this.eventDescription,
       required this.eventLocation,
@@ -88,10 +92,7 @@ class _TicketsState extends State<Tickets> {
                             Row(
                               children: [
                                 Text(
-                                  widget.coupleValue
-                                      .toString()
-                                      .substring(6)
-                                      .toUpperCase(),
+                                  widget.participantType.toString(),
                                   style: TextStyle(
                                       color: textColor,
                                       fontWeight: FontWeight.w400,
@@ -101,7 +102,10 @@ class _TicketsState extends State<Tickets> {
                                   width: 6,
                                 ),
                                 Text(
-                                  "Guestlist",
+                                  widget.coupleValue
+                                      .toString()
+                                      .substring(7)
+                                      .toUpperCase(),
                                   style: TextStyle(
                                       color: textColor.withOpacity(.7),
                                       fontWeight: FontWeight.w400,
@@ -112,8 +116,11 @@ class _TicketsState extends State<Tickets> {
                             Row(
                               children: [
                                 Text(
-                                  "Before ",
+                                  widget.eventTicketSession,
                                   style: TextStyle(color: grey),
+                                ),
+                                SizedBox(
+                                  width: 7,
                                 ),
                                 Text(
                                   widget.fromTime,
@@ -244,17 +251,17 @@ class _TicketsState extends State<Tickets> {
                 title: "Continue - Pay at venue",
                 onTap: () {
                   print(multivalue(_counter, int.parse(widget.eventPrice)));
+                  print(_counter);
                   Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (builder) => TicketPayment(
+                                artistType: widget.coupleValue,
+                                eventTicketSession: widget.eventTicketSession,
                                 numofseats: _counter,
                                 coupon: widget.nameOffer,
                                 clubuid: widget.clubUid,
-                                coupleValue: widget.coupleValue
-                                    .toString()
-                                    .substring(6)
-                                    .toUpperCase(),
+                                coupleValue: widget.participantType,
                                 eventUuid: widget.uuid,
                                 fromTime: widget.fromTime,
                                 eventCost: multivalue(
