@@ -1,3 +1,5 @@
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:partymania_users/screens/dashboardpages/widget/home_grid_widget.dart';
 import 'package:partymania_users/screens/dashboardpages/widget/home_listview_widget.dart';
@@ -132,7 +134,34 @@ class _HomePageState extends State<HomePage> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Image.asset("assets/Group 14594.png"),
+              child: StreamBuilder<QuerySnapshot>(
+                stream:
+                    FirebaseFirestore.instance.collection('events').snapshots(),
+                builder: (context, snapshot) {
+                  if (!snapshot.hasData) {
+                    return CircularProgressIndicator(); // Show loading indicator while fetching data
+                  }
+
+                  final documents = snapshot.data!.docs;
+
+                  return CarouselSlider.builder(
+                    itemCount: documents.length,
+                    itemBuilder: (context, index, realIndex) {
+                      final imageUrl = documents[index]['eventCoverPhoto'];
+                      return Image.network(imageUrl,
+                          filterQuality: FilterQuality.high,
+                          fit: BoxFit.cover,
+                          width: 1000);
+                    },
+                    options: CarouselOptions(
+                      aspectRatio: 2.0,
+                      enlargeCenterPage: true,
+                      scrollDirection: Axis.horizontal,
+                      autoPlay: true,
+                    ),
+                  );
+                },
+              ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -145,7 +174,7 @@ class _HomePageState extends State<HomePage> {
                       "Trending",
                       style: TextStyle(
                           color: textColor,
-                          fontSize: 18,
+                          fontSize: 16,
                           fontWeight: FontWeight.w500),
                     ),
                   ),
@@ -158,12 +187,21 @@ class _HomePageState extends State<HomePage> {
                         //     MaterialPageRoute(
                         //         builder: (builder) => EventNearByYourFrame()));
                       },
-                      child: Text(
-                        "See All>",
-                        style: TextStyle(
-                            fontSize: 18,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            "See All",
+                            style: TextStyle(
+                                fontSize: 16,
+                                color: textColor,
+                                fontWeight: FontWeight.w400),
+                          ),
+                          Icon(
+                            Icons.keyboard_arrow_right,
                             color: textColor,
-                            fontWeight: FontWeight.w400),
+                          )
+                        ],
                       ),
                     ),
                   ),
@@ -185,7 +223,7 @@ class _HomePageState extends State<HomePage> {
                       "Nearby Your Location",
                       style: TextStyle(
                           color: textColor,
-                          fontSize: 18,
+                          fontSize: 16,
                           fontWeight: FontWeight.w500),
                     ),
                   ),
@@ -198,12 +236,21 @@ class _HomePageState extends State<HomePage> {
                         //     MaterialPageRoute(
                         //         builder: (builder) => EventNearByYourFrame()));
                       },
-                      child: Text(
-                        "See All?",
-                        style: TextStyle(
-                            fontSize: 18,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            "See All",
+                            style: TextStyle(
+                                fontSize: 16,
+                                color: textColor,
+                                fontWeight: FontWeight.w400),
+                          ),
+                          Icon(
+                            Icons.keyboard_arrow_right,
                             color: textColor,
-                            fontWeight: FontWeight.w400),
+                          )
+                        ],
                       ),
                     ),
                   ),

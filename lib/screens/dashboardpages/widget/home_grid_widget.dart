@@ -290,7 +290,7 @@ class _HomeGridWidgetState extends State<HomeGridWidget> {
                                             width: 8,
                                           ),
                                           Text(
-                                            data['eventPrice'].toString(),
+                                            data['eventTicketPrice'].toString(),
                                             style: TextStyle(
                                               color: textColor,
                                               fontSize: 14,
