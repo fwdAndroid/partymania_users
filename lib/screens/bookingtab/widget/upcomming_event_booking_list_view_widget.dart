@@ -16,7 +16,10 @@ class _BookingListViewWidgetState extends State<BookingListViewWidget> {
     return SizedBox(
       height: MediaQuery.of(context).size.height / 1.5,
       child: StreamBuilder(
-          stream: FirebaseFirestore.instance.collection("events").snapshots(),
+          stream: FirebaseFirestore.instance
+              .collection("events")
+              .where("eventCreated", isEqualTo: true)
+              .snapshots(),
           builder: (context, snapshot) {
             if (!snapshot.hasData) {
               return const Center(
@@ -64,7 +67,66 @@ class _BookingListViewWidgetState extends State<BookingListViewWidget> {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (builder) =>
-                                                    BookingDetails()));
+                                                    BookingDetails(
+                                                      clubuid: data['uid'],
+                                                      eventAmenities: data[
+                                                          'eventAmenities'],
+                                                      eventCoverPhoto: data[
+                                                          'eventCoverPhoto'],
+                                                      eventDescription: data[
+                                                          'eventDescription'],
+                                                      eventLocation:
+                                                          data['eventLocation'],
+                                                      artistType:
+                                                          data['artistType'],
+                                                      bird: data['bird'],
+                                                      dayNight:
+                                                          data['dayNight'],
+                                                      eventName:
+                                                          data['eventName'],
+                                                      eventPhoto:
+                                                          data['eventPhoto'],
+                                                      eventStartDate: data[
+                                                          'eventStartDate'],
+                                                      eventTicketPrice: data[
+                                                          'eventTicketPrice'],
+                                                      eventTicketSession: data[
+                                                          'eventTicketSession'],
+                                                      eventTicketTimeBefore: data[
+                                                          'eventTicketTimeBefore'],
+                                                      eventTotalTickets: data[
+                                                          'eventTotalTickets'],
+                                                      eventType:
+                                                          data['eventType'],
+                                                      uuid: data['uuid'],
+                                                      fromEventDate:
+                                                          data['fromEventDate'],
+                                                      numofPeople:
+                                                          data['numofPeople'],
+                                                      offerCode:
+                                                          data['offerCode'],
+                                                      offerName:
+                                                          data['offerName'],
+                                                      participantType: data[
+                                                          'participantType'],
+                                                      tableNumber:
+                                                          data['tableNumber'],
+                                                      tablePrice:
+                                                          data['tablePrice']
+                                                              .toString(),
+                                                      tableType:
+                                                          data['tableType'],
+                                                      ticketPurchase:
+                                                          data['ticketPurchase']
+                                                              .toString(),
+                                                      timeDeadlineTicket: data[
+                                                          'timeDeadlineTicket'],
+                                                      toEventDate:
+                                                          data['toEventDate'],
+                                                      totaltables:
+                                                          data['totaltables']
+                                                              .toString(),
+                                                    )));
                                       },
                                       child: Row(
                                         mainAxisAlignment:
@@ -165,12 +227,30 @@ class _BookingListViewWidgetState extends State<BookingListViewWidget> {
                                                         width: 1,
                                                         color: textColor
                                                             .withOpacity(.80))),
-                                                child: Text(
-                                                  data['eventDate'],
-                                                  style: TextStyle(
-                                                      color: textColor
-                                                          .withOpacity(.6)),
-                                                  textAlign: TextAlign.center,
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Text(
+                                                      data['eventStartDate'],
+                                                      style: TextStyle(
+                                                          color: textColor
+                                                              .withOpacity(.6)),
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                    ),
+                                                    SizedBox(
+                                                      width: 7,
+                                                    ),
+                                                    Text(
+                                                      data['fromEventDate'],
+                                                      style: TextStyle(
+                                                          color: textColor
+                                                              .withOpacity(.6)),
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                    ),
+                                                  ],
                                                 ),
                                               ),
                                             ],

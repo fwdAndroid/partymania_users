@@ -64,11 +64,11 @@ class _PastEventWidgetState extends State<PastEventWidget> {
                                   children: [
                                     InkWell(
                                       onTap: () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (builder) =>
-                                                    BookingDetails()));
+                                        // Navigator.push(
+                                        //     context,
+                                        //     MaterialPageRoute(
+                                        //         builder: (builder) =>
+                                        //             BookingDetails()));
                                       },
                                       child: Row(
                                         mainAxisAlignment:
