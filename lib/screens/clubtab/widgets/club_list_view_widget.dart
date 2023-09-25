@@ -62,7 +62,36 @@ class _ClubListViewWidgetState extends State<ClubListViewWidget> {
                                 child: Column(
                                   children: [
                                     InkWell(
-                                      onTap: () {},
+                                      onTap: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (builder) =>
+                                                    ClubDetails(
+                                                      clubCity:
+                                                          data['clubCity'],
+                                                      clubCountry:
+                                                          data['clubCountry'],
+                                                      clubDescription: data[
+                                                          'clubDescription'],
+                                                      clubLocation:
+                                                          data['clubLocation'],
+                                                      clubName:
+                                                          data['clubName'],
+                                                      clubState:
+                                                          data['clubState'],
+                                                      clubType:
+                                                          data['clubType'],
+                                                      coverPhoto:
+                                                          data['coverPhoto'],
+                                                      clubPhoneNumber: data[
+                                                          'clubPhoneNumber'],
+                                                      uid: data['uid'],
+                                                      followers:
+                                                          data['followers']
+                                                              .toString(),
+                                                    )));
+                                      },
                                       child: Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.start,

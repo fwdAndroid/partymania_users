@@ -4,7 +4,32 @@ import 'package:partymania_users/utils/colors.dart';
 import 'package:partymania_users/utils/longtext.dart';
 
 class ClubDetails extends StatefulWidget {
-  const ClubDetails({super.key});
+  final uid;
+  final clubCity;
+  final clubCountry;
+  final clubDescription;
+  final clubLocation;
+  final clubName;
+  final clubType;
+  final clubState;
+  final coverPhoto;
+  final followers;
+  final clubPhoneNumber;
+
+  const ClubDetails({
+    super.key,
+    required this.clubCity,
+    required this.clubCountry,
+    required this.clubDescription,
+    required this.clubLocation,
+    required this.clubName,
+    required this.clubState,
+    required this.clubType,
+    required this.clubPhoneNumber,
+    required this.coverPhoto,
+    required this.followers,
+    required this.uid,
+  });
 
   @override
   State<ClubDetails> createState() => _ClubDetailsState();
@@ -21,7 +46,13 @@ class _ClubDetailsState extends State<ClubDetails> {
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Image.asset("assets/blue.png"),
+              child: Image.network(
+                widget.coverPhoto,
+                filterQuality: FilterQuality.high,
+                fit: BoxFit.cover,
+                height: 250,
+                width: MediaQuery.of(context).size.width,
+              ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -29,7 +60,7 @@ class _ClubDetailsState extends State<ClubDetails> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Tuborg Club",
+                    widget.clubName.toString(),
                     style: TextStyle(
                         color: textColor,
                         fontWeight: FontWeight.w500,
@@ -45,92 +76,49 @@ class _ClubDetailsState extends State<ClubDetails> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Row(
-                children: [
-                  Container(
-                    width: 50,
-                    height: 26,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                        color: otpColor.withOpacity(.8),
-                      ),
-                    ),
-                    child: Center(
-                      child: Text(
-                        "Club",
-                        style: TextStyle(color: otpColor.withOpacity(.6)),
-                      ),
-                    ),
+              child: Container(
+                width: 50,
+                height: 26,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(
+                    color: otpColor.withOpacity(.8),
                   ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Container(
-                    width: 50,
-                    height: 26,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                        color: otpColor.withOpacity(.8),
-                      ),
-                    ),
-                    child: Center(
-                      child: Text(
-                        "Bar",
-                        style: TextStyle(color: otpColor.withOpacity(.6)),
-                      ),
-                    ),
-                  ),
-                  Flexible(
-                    child: Container(),
-                  ),
-                  Container(
-                    width: 60,
-                    height: 26,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                        color: Color(0xff3AB8FF).withOpacity(.8),
-                      ),
-                    ),
-                    child: Center(
-                      child: Text(
-                        "Follow",
-                        style:
-                            TextStyle(color: Color(0xff3AB8FF).withOpacity(.6)),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ListTile(
-                leading: Image.asset("assets/t.png"),
-                title: Text(
-                  "Ticket Price",
-                  style: TextStyle(
-                      color: textColor,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 18),
                 ),
-                subtitle: Text(
-                  "Range Rs. 480 - Rs. 1400",
-                  style: TextStyle(
-                      color: textColor.withOpacity(.7),
-                      fontWeight: FontWeight.w400,
-                      fontSize: 14),
+                child: Center(
+                  child: Text(
+                    widget.clubType,
+                    style: TextStyle(color: otpColor.withOpacity(.6)),
+                  ),
                 ),
               ),
             ),
+            // Padding(
+            //   padding: const EdgeInsets.all(8.0),
+            //   child: ListTile(
+            //     leading: Image.asset("assets/t.png"),
+            //     title: Text(
+            //       "Ticket Price",
+            //       style: TextStyle(
+            //           color: textColor,
+            //           fontWeight: FontWeight.w500,
+            //           fontSize: 18),
+            //     ),
+            //     subtitle: Text(
+            //       "Range Rs. 480 - Rs. 1400",
+            //       style: TextStyle(
+            //           color: textColor.withOpacity(.7),
+            //           fontWeight: FontWeight.w400,
+            //           fontSize: 14),
+            //     ),
+            //   ),
+            // ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ListTile(
                 leading: Image.asset("assets/calls.png"),
                 title: Text(
-                  "+91 12345-12345",
+                  widget.clubPhoneNumber,
                   style: TextStyle(
                       color: textColor,
                       fontWeight: FontWeight.w500,
@@ -150,7 +138,7 @@ class _ClubDetailsState extends State<ClubDetails> {
               child: ListTile(
                 leading: Image.asset("assets/Group 14428.png"),
                 title: Text(
-                  "7/2-4, Siddhi Garden, Near Mhatre Bridge, Erandwane, Pune, Maharashtra 411004",
+                  widget.clubLocation,
                   style: TextStyle(
                       color: textColor.withOpacity(.7),
                       fontWeight: FontWeight.w400,
@@ -245,7 +233,7 @@ class _ClubDetailsState extends State<ClubDetails> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                longtext,
+                widget.clubDescription,
                 style: TextStyle(
                     color: textColor.withOpacity(.7),
                     fontWeight: FontWeight.w400,

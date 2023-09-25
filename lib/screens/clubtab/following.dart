@@ -35,10 +35,10 @@ class _FollowingState extends State<Following> {
                           children: [
                             InkWell(
                               onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (builder) => ClubDetails()));
+                                // Navigator.push(
+                                //     context,
+                                //     MaterialPageRoute(
+                                //         builder: (builder) => ClubDetails()));
                               },
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.start,

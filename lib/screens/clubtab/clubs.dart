@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:partymania_users/screens/clubtab/seeAll.dart';
 import 'package:partymania_users/screens/clubtab/widgets/club_grid_widget.dart';
 import 'package:partymania_users/screens/clubtab/widgets/club_list_view_widget.dart';
 import 'package:partymania_users/utils/colors.dart';
@@ -52,10 +53,10 @@ class _ClubsState extends State<Clubs> {
                     margin: EdgeInsets.only(right: 10),
                     child: TextButton(
                       onPressed: () {
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (builder) => EventNearByYourFrame()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (builder) => ClubSeeAll()));
                       },
                       child: Text(
                         "See All",
@@ -92,10 +93,10 @@ class _ClubsState extends State<Clubs> {
                     margin: EdgeInsets.only(right: 10),
                     child: TextButton(
                       onPressed: () {
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (builder) => EventNearByYourFrame()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (builder) => ClubSeeAll()));
                       },
                       child: Text(
                         "See All",
