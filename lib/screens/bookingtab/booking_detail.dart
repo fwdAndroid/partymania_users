@@ -218,7 +218,7 @@ class _BookingDetailsState extends State<BookingDetails> {
                     ),
                     child: Center(
                       child: Text(
-                        widget.eventAmenities,
+                        widget.eventAmenities.toString(),
                         style: TextStyle(color: textColor.withOpacity(.6)),
                       ),
                     ),

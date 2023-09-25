@@ -242,7 +242,7 @@ class _HomeDetailsState extends State<HomeDetails> {
                       ),
                       child: Center(
                         child: Text(
-                          widget.eventAmenities,
+                          widget.eventAmenities.toString(),
                           style: TextStyle(color: textColor.withOpacity(.6)),
                         ),
                       ),
