@@ -282,12 +282,21 @@ class _HomePageState extends State<HomePage> {
                         //     MaterialPageRoute(
                         //         builder: (builder) => EventNearByYourFrame()));
                       },
-                      child: Text(
-                        "See All>",
-                        style: TextStyle(
-                            fontSize: 18,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            "See All",
+                            style: TextStyle(
+                                fontSize: 16,
+                                color: textColor,
+                                fontWeight: FontWeight.w400),
+                          ),
+                          Icon(
+                            Icons.keyboard_arrow_right,
                             color: textColor,
-                            fontWeight: FontWeight.w400),
+                          )
+                        ],
                       ),
                     ),
                   ),
