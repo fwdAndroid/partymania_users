@@ -2,7 +2,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:partymania_users/screens/dashboardpages/widget/home_grid_widget.dart';
-import 'package:partymania_users/screens/dashboardpages/widget/home_listview_widget.dart';
+import 'package:partymania_users/screens/dashboardpages/widget/home_grid_widget_location.dart';
+import 'package:partymania_users/screens/dashboardpages/widget/newestlistviewwidget.dart';
 import 'package:partymania_users/screens/user_profile/book_serarch_screen.dart';
 import 'package:partymania_users/screens/user_profile/bookmark.dart';
 import 'package:partymania_users/screens/user_profile/filter_screen.dart';
@@ -257,7 +258,7 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            HomeGridWidget(),
+            HomeGridWidgetLocation(),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
@@ -303,7 +304,7 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            HomeListViewWidget()
+            NewestListViewWidget()
           ],
         ),
       ),
