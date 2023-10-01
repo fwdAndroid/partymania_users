@@ -17,10 +17,7 @@ class _EventNearByYourFrameState extends State<EventNearByYourFrame> {
     return Scaffold(
         backgroundColor: backgroundColor,
         body: StreamBuilder(
-            stream: FirebaseFirestore.instance
-                .collection("events")
-                .where("uid", isEqualTo: FirebaseAuth.instance.currentUser!.uid)
-                .snapshots(),
+            stream: FirebaseFirestore.instance.collection("events").snapshots(),
             builder: (context, snapshot) {
               if (!snapshot.hasData) {
                 return const Center(
@@ -45,8 +42,6 @@ class _EventNearByYourFrameState extends State<EventNearByYourFrame> {
                     return StreamBuilder<Object>(
                       stream: FirebaseFirestore.instance
                           .collection("events")
-                          .where("uid",
-                              isEqualTo: FirebaseAuth.instance.currentUser!.uid)
                           .snapshots(),
                       builder: (BuildContext context, AsyncSnapshot snapshot) {
                         if (!snapshot.hasData) {
@@ -65,7 +60,7 @@ class _EventNearByYourFrameState extends State<EventNearByYourFrame> {
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(20)),
                                 border: Border.all(color: textColor)),
-                            height: 150,
+                            height: 80,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
