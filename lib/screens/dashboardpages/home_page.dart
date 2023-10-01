@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:partymania_users/screens/dashboardpages/widget/home_grid_widget.dart';
 import 'package:partymania_users/screens/dashboardpages/widget/home_grid_widget_location.dart';
+import 'package:partymania_users/screens/dashboardpages/widget/near_by_frame.dart';
 import 'package:partymania_users/screens/dashboardpages/widget/newestlistviewwidget.dart';
 import 'package:partymania_users/screens/user_profile/book_serarch_screen.dart';
 import 'package:partymania_users/screens/user_profile/bookmark.dart';
@@ -183,10 +184,10 @@ class _HomePageState extends State<HomePage> {
                     margin: EdgeInsets.only(right: 10),
                     child: TextButton(
                       onPressed: () {
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (builder) => EventNearByYourFrame()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (builder) => EventNearByYourFrame()));
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
@@ -232,10 +233,10 @@ class _HomePageState extends State<HomePage> {
                     margin: EdgeInsets.only(right: 10),
                     child: TextButton(
                       onPressed: () {
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (builder) => EventNearByYourFrame()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (builder) => EventNearByYourFrame()));
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
@@ -278,10 +279,10 @@ class _HomePageState extends State<HomePage> {
                     margin: EdgeInsets.only(right: 10),
                     child: TextButton(
                       onPressed: () {
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (builder) => EventNearByYourFrame()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (builder) => EventNearByYourFrame()));
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
