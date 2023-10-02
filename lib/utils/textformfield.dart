@@ -12,6 +12,7 @@ class TextFormInputField extends StatelessWidget {
 
   final void Function()? onTap;
   final void Function(String)? onChanged;
+  final void Function(String)? onFieldSubmited;
 
   final AutovalidateMode? autovalidateMode;
   final FormFieldValidator? validat;
@@ -29,6 +30,7 @@ class TextFormInputField extends StatelessWidget {
       this.error,
       this.maxLines,
       this.onTap,
+      this.onFieldSubmited,
       this.autovalidateMode,
       this.inputFormatters,
       this.validat,
@@ -49,6 +51,7 @@ class TextFormInputField extends StatelessWidget {
         inputFormatters: inputFormatters,
         validator: validat,
         onChanged: onChanged,
+        onFieldSubmitted: onFieldSubmited,
         keyboardType: textInputType,
         obscureText: isPass,
         controller: controller,
