@@ -117,7 +117,7 @@ class _HomePageState extends State<HomePage> {
                         itemBuilder: (BuildContext context, int index) {
                           return ListTile(
                             onTap: () {
-                              var data = snapshot.data!.docs[index];
+                              // var data = snapshot.data!.docs[index];
 
                               // Navigator.of(context).push(MaterialPageRoute(
                               //     builder: (context) => BusinessView(
