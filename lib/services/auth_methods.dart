@@ -78,4 +78,38 @@ class AuthMethods {
     }
     return res;
   }
+
+  Future<void> followUser(String uid, String followId) async {
+    try {
+      DocumentSnapshot snap =
+          await FirebaseFirestore.instance.collection('clubs').doc(uid).get();
+      List following = (snap.data()! as dynamic)['following'];
+
+      if (following.contains(followId)) {
+        await FirebaseFirestore.instance
+            .collection('clubs')
+            .doc(followId)
+            .update({
+          'followers': FieldValue.arrayRemove([uid])
+        });
+
+        await FirebaseFirestore.instance.collection('clubs').doc(uid).update({
+          'following': FieldValue.arrayRemove([followId])
+        });
+      } else {
+        await FirebaseFirestore.instance
+            .collection('clubs')
+            .doc(followId)
+            .update({
+          'followers': FieldValue.arrayUnion([uid])
+        });
+
+        await FirebaseFirestore.instance.collection('clubs').doc(uid).update({
+          'following': FieldValue.arrayUnion([followId])
+        });
+      }
+    } catch (e) {
+      print(e.toString());
+    }
+  }
 }

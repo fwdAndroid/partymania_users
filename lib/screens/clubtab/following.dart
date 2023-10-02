@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:partymania_users/screens/clubtab/club_details.dart';
-import 'package:partymania_users/screens/clubtab/widgets/club_list_view_widget.dart';
 import 'package:partymania_users/utils/colors.dart';
 
 class Following extends StatefulWidget {

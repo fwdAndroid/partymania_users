@@ -41,6 +41,7 @@ class _ClubGridWidgetState extends State<ClubGridWidget> {
                     return StreamBuilder<Object>(
                       stream: FirebaseFirestore.instance
                           .collection("clubs")
+                          .orderBy("clubCity")
                           .snapshots(),
                       builder: (BuildContext context, AsyncSnapshot snapshot) {
                         if (!snapshot.hasData) {

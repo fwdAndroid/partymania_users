@@ -1,7 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:partymania_users/screens/clubtab/widgets/upcomming_event_list.dart';
+import 'package:partymania_users/screens/dashboardpages/widget/home_listview_widget.dart';
 import 'package:partymania_users/utils/colors.dart';
-import 'package:partymania_users/utils/longtext.dart';
 
 class ClubDetails extends StatefulWidget {
   final uid;
@@ -36,6 +37,41 @@ class ClubDetails extends StatefulWidget {
 }
 
 class _ClubDetailsState extends State<ClubDetails> {
+  bool isFollowing = false;
+  String followButtonText = 'Follow';
+
+  void followUser() {
+    FirebaseFirestore.instance.collection("clubs").doc(widget.uid).update({
+      "followers":
+          FieldValue.arrayUnion([FirebaseAuth.instance.currentUser!.uid])
+    });
+
+    setState(() {
+      isFollowing = true;
+      followButtonText = 'Following';
+    });
+  }
+
+  void unfollowUser() {
+    FirebaseFirestore.instance.collection("clubs").doc(widget.uid).update({
+      "followers":
+          FieldValue.arrayRemove([FirebaseAuth.instance.currentUser!.uid])
+    });
+
+    setState(() {
+      isFollowing = false;
+      followButtonText = 'follow';
+    });
+  }
+
+  void toggleFollow() {
+    if (isFollowing) {
+      unfollowUser();
+    } else {
+      followUser();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,10 +102,20 @@ class _ClubDetailsState extends State<ClubDetails> {
                         fontWeight: FontWeight.w500,
                         fontSize: 20),
                   ),
-                  Image.asset(
-                    "assets/dots.png",
-                    height: 20,
-                    width: 20,
+                  Row(
+                    children: [
+                      ElevatedButton(
+                          onPressed: toggleFollow,
+                          child: Text(followButtonText)),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Image.asset(
+                        "assets/dots.png",
+                        height: 40,
+                        width: 40,
+                      ),
+                    ],
                   )
                 ],
               ),
@@ -250,10 +296,11 @@ class _ClubDetailsState extends State<ClubDetails> {
                     fontSize: 20),
               ),
             ),
-            UpComingEventsList(),
-            const SizedBox(
-              height: 10,
-            ),
+            HomeListViewWidget()
+            // UpComingEventsList(),
+            // const SizedBox(
+            //   height: 10,
+            // ),
           ],
         ),
       ),
