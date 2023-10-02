@@ -45,6 +45,9 @@ class _ClubDetailsState extends State<ClubDetails> {
       "followers":
           FieldValue.arrayUnion([FirebaseAuth.instance.currentUser!.uid])
     });
+    FirebaseFirestore.instance.collection("users").doc(widget.uid).update({
+      "following": FieldValue.arrayUnion([widget.uid])
+    });
 
     setState(() {
       isFollowing = true;
@@ -56,6 +59,9 @@ class _ClubDetailsState extends State<ClubDetails> {
     FirebaseFirestore.instance.collection("clubs").doc(widget.uid).update({
       "followers":
           FieldValue.arrayRemove([FirebaseAuth.instance.currentUser!.uid])
+    });
+    FirebaseFirestore.instance.collection("users").doc(widget.uid).update({
+      "following": FieldValue.arrayRemove([widget.uid])
     });
 
     setState(() {
