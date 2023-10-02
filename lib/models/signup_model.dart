@@ -9,10 +9,12 @@ class SignUp_Model {
   String dob;
   String createPassword;
   String confrimPassword;
+  final following;
 
   SignUp_Model(
       {required this.uid,
       required this.email,
+      required this.following,
       required this.fullName,
       required this.gender,
       required this.dob,
@@ -26,6 +28,7 @@ class SignUp_Model {
         'uid': uid,
         'email': email,
         "gender": gender,
+        "following": following,
         'fullName': fullName,
         'dob': dob,
         'confrimPassword': confrimPassword,
@@ -40,6 +43,7 @@ class SignUp_Model {
       phone_Number: snapshot['phone_Number'],
       uid: snapshot['uid'],
       email: snapshot['email'],
+      following: snapshot['following'],
       dob: snapshot['dob'],
       gender: snapshot['gender'],
       createPassword: snapshot['createPassword'],

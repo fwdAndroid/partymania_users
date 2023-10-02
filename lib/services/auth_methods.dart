@@ -33,6 +33,7 @@ class AuthMethods {
             email: email, password: createPassword);
         //Add User to the database with modal
         SignUp_Model signUp_Model = SignUp_Model(
+          following: [],
           fullName: fullName,
           uid: cred.user!.uid,
           email: email,
