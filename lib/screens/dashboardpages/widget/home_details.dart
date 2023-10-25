@@ -544,7 +544,9 @@ class _HomeDetailsState extends State<HomeDetails> {
                         Container(
                           width: 270,
                           child: SaveButton(
-                              title: widget.eventTicketPrice.toString(),
+                              title: "RS " +
+                                  widget.eventTicketPrice.toString() +
+                                  " BookNow ",
                               onTap: () {
                                 Navigator.push(
                                     context,

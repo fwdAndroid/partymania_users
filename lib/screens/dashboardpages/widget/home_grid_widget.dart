@@ -14,7 +14,7 @@ class _HomeGridWidgetState extends State<HomeGridWidget> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        height: 250,
+        height: 252,
         child: StreamBuilder(
             stream: FirebaseFirestore.instance.collection("events").snapshots(),
             builder: (context, snapshot) {

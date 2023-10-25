@@ -63,7 +63,7 @@ class _HomeGridWidgetLocationState extends State<HomeGridWidgetLocation> {
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(20)),
                                 border: Border.all(color: textColor)),
-                            height: 300,
+                            height: 305,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
