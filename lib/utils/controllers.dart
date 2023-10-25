@@ -19,6 +19,7 @@ final searchController = TextEditingController();
 final editProfileFullNameController = TextEditingController();
 final editProfileEmailController = TextEditingController();
 final editPhoneController = TextEditingController();
+final editdateController = TextEditingController();
 
 //Edit Club
 final editclubimageController = TextEditingController();
