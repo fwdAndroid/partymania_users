@@ -4,7 +4,7 @@ import 'package:partymania_users/utils/button.dart';
 import 'package:partymania_users/utils/colors.dart';
 
 class Tables extends StatefulWidget {
-  const rTables({super.key});
+  const Tables({super.key});
 
   @override
   State<Tables> createState() => _TablesState();

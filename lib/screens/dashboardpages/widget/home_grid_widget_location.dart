@@ -14,12 +14,9 @@ class _HomeGridWidgetLocationState extends State<HomeGridWidgetLocation> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        height: 250,
+        height: 252,
         child: StreamBuilder(
-            stream: FirebaseFirestore.instance
-                .collection("events")
-                .orderBy("eventLocation")
-                .snapshots(),
+            stream: FirebaseFirestore.instance.collection("events").snapshots(),
             builder: (context, snapshot) {
               if (!snapshot.hasData) {
                 return const Center(
@@ -44,7 +41,6 @@ class _HomeGridWidgetLocationState extends State<HomeGridWidgetLocation> {
                     return StreamBuilder<Object>(
                       stream: FirebaseFirestore.instance
                           .collection("events")
-                          .orderBy("eventLocation")
                           .snapshots(),
                       builder: (BuildContext context, AsyncSnapshot snapshot) {
                         if (!snapshot.hasData) {
@@ -63,7 +59,7 @@ class _HomeGridWidgetLocationState extends State<HomeGridWidgetLocation> {
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(20)),
                                 border: Border.all(color: textColor)),
-                            height: 305,
+                            height: 300,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [

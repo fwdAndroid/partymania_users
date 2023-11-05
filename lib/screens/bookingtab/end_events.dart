@@ -25,6 +25,7 @@ class _EndEventsState extends State<EndEvents> {
                     .collection("bookings")
                     .where("uid",
                         isEqualTo: FirebaseAuth.instance.currentUser!.uid)
+                    .where("eventStartDate", isNotEqualTo: DateTime.now())
                     .snapshots(),
                 builder: (context, snapshot) {
                   if (!snapshot.hasData) {
