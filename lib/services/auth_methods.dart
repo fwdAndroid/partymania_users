@@ -23,7 +23,7 @@ class AuthMethods {
       required String dob,
       required final gender,
       required String confrimPassword}) async {
-    String res = 'Some error occured';
+    String res = 'Email or Password is wrong ';
     try {
       if (email.isNotEmpty ||
           createPassword.isNotEmpty ||
