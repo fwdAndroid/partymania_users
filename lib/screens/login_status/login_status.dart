@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:partymania_users/screens/auth/login_screen.dart';
 import 'package:partymania_users/screens/auth/sign_up_account.dart';
+import 'package:partymania_users/screens/main_dashboard.dart';
 
 class LoginStatus extends StatefulWidget {
   const LoginStatus({super.key});
@@ -37,7 +38,7 @@ class _LoginStatusState extends State<LoginStatus> {
 
     if (doesDocExist) {
       Navigator.push(
-          context, MaterialPageRoute(builder: (builder) => LoginScreen()));
+          context, MaterialPageRoute(builder: (builder) => MainScreen()));
     } else {
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (builder) => SignUpAccount()));

@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:partymania_users/screens/clubtab/club_details.dart';
 import 'package:partymania_users/utils/colors.dart';
@@ -74,6 +75,7 @@ class _FollowingState extends State<Following> {
                                                 MaterialPageRoute(
                                                     builder: (builder) =>
                                                         ClubDetails(
+                                                          clubid: data['uid'],
                                                           clubCity:
                                                               data['clubCity'],
                                                           clubCountry: data[
@@ -92,7 +94,10 @@ class _FollowingState extends State<Following> {
                                                               'coverPhoto'],
                                                           clubPhoneNumber: data[
                                                               'clubPhoneNumber'],
-                                                          uid: data['uid'],
+                                                          uid: FirebaseAuth
+                                                              .instance
+                                                              .currentUser!
+                                                              .uid,
                                                           followers:
                                                               data['followers']
                                                                   .toString(),

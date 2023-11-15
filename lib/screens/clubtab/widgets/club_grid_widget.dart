@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:partymania_users/screens/clubtab/club_details.dart';
 import 'package:partymania_users/utils/colors.dart';
@@ -70,6 +71,8 @@ class _ClubGridWidgetState extends State<ClubGridWidget> {
                                         context,
                                         MaterialPageRoute(
                                             builder: (builder) => ClubDetails(
+                                                  uid: FirebaseAuth.instance
+                                                      .currentUser!.uid,
                                                   clubCity: data['clubCity'],
                                                   clubPhoneNumber:
                                                       data['clubPhoneNumber'],
@@ -84,7 +87,7 @@ class _ClubGridWidgetState extends State<ClubGridWidget> {
                                                   clubType: data['clubType'],
                                                   coverPhoto:
                                                       data['coverPhoto'],
-                                                  uid: data['uid'],
+                                                  clubid: data['uid'],
                                                   followers: data['followers']
                                                       .toString(),
                                                 )));

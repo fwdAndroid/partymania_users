@@ -13,12 +13,14 @@ class ClubDetails extends StatefulWidget {
   final clubName;
   final clubType;
   final clubState;
+  final clubid;
   final coverPhoto;
   final followers;
   final clubPhoneNumber;
 
   const ClubDetails({
     super.key,
+    required this.clubid,
     required this.clubCity,
     required this.clubCountry,
     required this.clubDescription,
@@ -41,12 +43,12 @@ class _ClubDetailsState extends State<ClubDetails> {
   String followButtonText = 'Follow';
 
   void followUser() {
-    FirebaseFirestore.instance.collection("clubs").doc(widget.uid).update({
+    FirebaseFirestore.instance.collection("clubs").doc(widget.clubid).update({
       "followers":
           FieldValue.arrayUnion([FirebaseAuth.instance.currentUser!.uid])
     });
-    FirebaseFirestore.instance.collection("users").doc(widget.uid).update({
-      "following": FieldValue.arrayUnion([widget.uid])
+    FirebaseFirestore.instance.collection("users").doc(widget.clubid).update({
+      "following": FieldValue.arrayUnion([widget.clubid])
     });
 
     setState(() {
@@ -61,7 +63,7 @@ class _ClubDetailsState extends State<ClubDetails> {
           FieldValue.arrayRemove([FirebaseAuth.instance.currentUser!.uid])
     });
     FirebaseFirestore.instance.collection("users").doc(widget.uid).update({
-      "following": FieldValue.arrayRemove([widget.uid])
+      "following": FieldValue.arrayRemove([widget.clubid])
     });
 
     setState(() {
